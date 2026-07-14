@@ -14,28 +14,4 @@ means = (
       .round(2)
 ) # we compute the average math and reading scores for different class sizes
 
-print(means)
-
-from scipy.stats import f_oneway
-
-# Split into treatment groups
-small = df[df["stark"] == "small"]
-regular = df[df["stark"] == "regular"]
-aide = df[df["stark"] == "regular+aide"]
-
-# Reading
-F_read, p_read = f_oneway(
-    small["readk"].dropna(),
-    regular["readk"].dropna(),
-    aide["readk"].dropna()
-)
-
-# Math
-F_math, p_math = f_oneway(
-    small["mathk"].dropna(),
-    regular["mathk"].dropna(),
-    aide["mathk"].dropna()
-)
-
-print(f"Reading: F = {F_read:.3f}, p = {p_read:.4f}")
-print(f"Math:    F = {F_math:.3f}, p = {p_math:.4f}")
+print(means) # average reading and math scores are higher for students in smaller classes
