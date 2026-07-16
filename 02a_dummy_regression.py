@@ -6,34 +6,31 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
-# df = pd.read_csv("data/regression/nifty50_summary_statistics.csv")
-# df_reg = df[["Company_Name", "Sector", "First_Date", "Last_Date", "Total_Trading_Days", "Avg_Daily_Volume", "Avg_Daily_Return_%", "Volatility_%"]]
-# df_reg.to_csv("data/regression/nifty50_dummy_dataset.csv", index=False)
+df = pd.read_csv("data/regression/penguins.csv")
 
-# Load data
-df = pd.read_csv("data/regression/nifty50_dummy_dataset.csv")
-
-# Log-transform average daily volume
-df["Log_Avg_Daily_Volume"] = np.log(df["Avg_Daily_Volume"])
-
-# Regression
-model = smf.ols(
-    formula='Q("Volatility_%") ~ Log_Avg_Daily_Volume + Total_Trading_Days + C(Sector)',
-    data=df
-).fit()
+model = smf.ols("body_mass_g ~ C(sex) + C(species)", data = df).fit()
 
 print(model.summary())
 
-
 ##################################################
 # Findings
-# 
+# Male penguins weigh, on average, 668 grams more than female penguins, holding species constant. 
 
-# Lessons
-# 1. Difference in means is the same as the coefficient of a dummy variable in a regression model.
-# 2. High correlation does not imply causation.
-# 3. Omitted Variable Bias (OMV) arises from variables which affect both treatment and outcome but are not included.
-# 4. Exogeneity requires that explanatory variables are uncorrelated with the error term.
-# 5. Controls can be used to reduce OMV, but do not guarantee exogeneity.
-# 6. Every coefficient comes with standard error, t-stat, p-val, and confidence interval.
+# Takeaways
+# 1. A regression with a single dummy variable is equivalent to a difference in group means.
+# 2. The intercept is the mean of the reference group.
+# 3. The dummy coefficient is the difference in means relative to the reference group.
+# 4. Correlation does not imply causation.
+# 5. Omitted Variable Bias (OMV) arises when an omitted variable affects both the regressor and the outcome.
+# 6. Exogeneity requires E[u | X] = 0; equivalently, the regressors are uncorrelated with the error term.
+# 7. Adding relavant control variables can reduce OMV, but cannot eliminate bias from unobserved confounders.
+# 8. Every estimated coefficient has uncertainty, summarised by its standard error, t-statistic, p-value, and confidence interval.     
+
+# Assumptions:
+# 1. Linearity in Parameters
+# 2. Random Sampling / Independent Observations
+# 3. No perfect multicollinearity
+# 4. Exogeneity: E[u | X] = 0
+# 5. Homoskedasticity
+# 6. Normality of Errors
 ##################################################

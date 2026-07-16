@@ -20,7 +20,7 @@ print(means) # average reading and math scores are higher for students in smalle
 # Findings
 # Employing smaller class sizes in kindergarten creates a positive effect on student performance in reading and math.
 
-# Lessons
+# Takeaways
 # 1. The experimental method is what creates an RCT, not shuffling or sampling of the data itself.
 # 2. Before testing causal hypothesis, check for balance in the treatment and control groups.
 # 3. A t-test or ANOVA test (with p-value) can be used to evaluate significance of causal findings.
