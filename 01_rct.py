@@ -24,4 +24,11 @@ print(means) # average reading and math scores are higher for students in smalle
 # 1. The experimental method is what creates an RCT, not shuffling or sampling of the data itself.
 # 2. Before testing causal hypothesis, check for balance in the treatment and control groups.
 # 3. A t-test or ANOVA test (with p-value) can be used to evaluate significance of causal findings.
+
+# Assumptions:
+# 1. Random Assignment: Treatment is assigned independently of outcomes.
+# 2. Independence (SUTVA): The treatment of one unit does not affect the outcome of another unit.
+# 3. Compliance: Units assigned to treatment actually receive the treatment.
+# 4. No differential attrition: Units do not drop out of the study in a way that is correlated with treatment assignment.
+# 5. Random Sampling: The sample is representative of the population of interest (if you want to generalize).
 ##################################################
