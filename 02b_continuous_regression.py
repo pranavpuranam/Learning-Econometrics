@@ -24,6 +24,7 @@ print(model.summary())
 # 3. Highly correlated regressors (multicollinearity) make it difficult to estimate individual effects.
 # 4. Residual diagnostics help assess model assumptions.
 # 5. The condition number is a quick diagnostic for multicollinearity.
+# 6. Linear-Linear means 1-unit increase in X -> β-unit increase in Y, Log-Linear means 1-unit increase in X -> 100*β% increase in Y, and Log-Log means 1% increase in X -> β% increase in Y. 
 
 # Assumptions:
 # 1. Linearity in Parameters
