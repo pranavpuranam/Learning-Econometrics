@@ -50,11 +50,17 @@ print(model.summary())
 
 ##################################################
 # Findings
-# A
+# *** This is a synthetic dataset so there is little to be learned.
 
 # Takeaways
-# 1. A
+# 1. Identify a treatment group, a comparable control group, and observations before and after treatment.
+# 2. Compare how outcomes change over time in the treated group relative to the control group, rather than comparing levels directly.
+# 3. Estimate a Difference-in-Differences model by interacting the treatment and post indicators. The interaction coefficient is the DiD estimate.
+# 4. With multiple time periods or staggered treatment adoption, the DiD framework naturally extends to Two-Way Fixed Effects (TWFE) models.
 
 # Assumptions:
-# 1. A
+# 1. Parallel trends: in the absence of treatment, the treated and control groups would have followed the same trend over time.
+# 2. No anticipation: units do not change their behaviour before treatment because they expect to be treated.
+# 3. Stable treatment composition: the treated and control groups remain comparable over time (no differential selection or attrition driven by treatment).
+# 4. SUTVA: one unit's treatment does not directly affect another unit's outcome (no spillover effects).
 ##################################################
